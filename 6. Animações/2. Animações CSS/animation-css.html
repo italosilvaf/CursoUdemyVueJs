@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Animações CSS</title>
+
+        <style>
+            .first-enter-active {
+                animation: animation_first 1s;
+            }
+            
+            .first-leave-active {
+                animation: animation_first 1s reverse;
+            }
+
+            @keyframes animation_first {
+                form{
+                    background: white;
+                }
+                to {
+                    background: red;
+                }
+            }
+            
+
+            .second-enter-active {
+                animation: animation_second 1s;
+            }
+            
+            .second-leave-active {
+                animation: animation_second 1.5s reverse;
+            }
+
+            @keyframes animation_second {
+                0%{
+                    background-color: #fff;
+                    font-size: 20px;
+                }
+                50%{
+                    background-color: #f00;
+                    font-size: 50px;
+                }
+                100%{
+                    background-color: #fff;
+                    font-size: 20px;
+                }
+            }
+            
+        </style>
+
+    </head>
+    <body>
+
+        <div id="animation">
+
+            <transition name="first">
+                <h2 v-if="show">Italo Silva Fernandes</h2>
+            </transition>
+
+            <hr>
+
+            <transition name="second">
+                <div v-if="show2">Giovanna Martins Oliveira</div>
+            </transition>
+
+            <button @click="show2 = !show2">Clique aqui</button>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+        <script>
+
+            let app = new Vue({
+                el: '#animation',
+                data: {
+                    show: true,
+                    show2: false,
+                },
+            })
+
+        </script>
+        
+    </body>
+</html>

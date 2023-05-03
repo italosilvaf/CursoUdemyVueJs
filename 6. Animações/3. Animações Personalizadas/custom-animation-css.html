@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Animações CSS Personalizadas</title>
+
+        <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+    </head>
+    <body>
+
+        <div id="animation">
+
+            <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOutDown">
+                <h2 v-if="show">Italo Silva Fernandes</h2>
+            </transition>
+
+            <button @click="show = !show">Clique aqui</button>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+        <script>
+
+            let app = new Vue({
+                el: '#animation',
+                data: {
+                    show: true,
+                },
+            })
+
+        </script>
+        
+    </body>
+</html>

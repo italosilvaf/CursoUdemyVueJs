@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eventos - Modificadores de Teclado do Sistema</title>
+
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+
+        <div id="events">
+
+            <div class="container">
+
+                <h1>Hcode Treinamentos</h1>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col" @click.ctrl="toggleClass">
+                        1
+                    </div>
+
+                    <div class="col" @click.ctrl="toggleClass">
+                        2
+                    </div>
+
+                    <div class="col" @click.ctrl="toggleClass">
+                        3
+                    </div>
+
+                    <div class="col" @click.ctrl="toggleClass">
+                        4
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+        <script>
+
+            let app = new Vue({
+                el: '#events',
+                data: {
+                },
+                methods: {
+                    toggleClass(event){
+
+                        let el = event.target
+
+                        let method = (el.classList.contains('bg-info')) ? 'remove' : 'add'
+
+                        eval(`el.classList.${method}('bg-info')`)
+
+                    }
+                }
+            })
+
+        </script>
+        
+    </body>
+</html>

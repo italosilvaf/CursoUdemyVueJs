@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Animações JS - Duração</title>
+
+        <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+
+    </head>
+    <body>
+
+        <div id="animation">
+
+            <transition
+                :duration="800"
+                enter-active-class="bounceIn"
+                leave-active-class="bounceOut"
+            >               
+                
+                <h1 v-if="show">Italo Silva Fernandes</h1>
+            
+            </transition>
+
+            <button @click="show = !show">Clique aqui</button>
+
+            <hr>
+
+            <transition
+                :duration="{ enter: 800, leave: 1000 }"
+                enter-active-class="animated rollIn"
+                leave-active-class="animated zoomOut"
+            >               
+                
+                <h1 v-if="show2">Italo Silva Fernandes</h1>
+            
+            </transition>
+
+            <button @click="show2 = !show2">Clique aqui</button>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+        <script>
+
+            let app = new Vue({
+                el: '#animation',
+                data: {
+                    show: true,
+                    show2: true,
+                },
+            })
+
+        </script>
+        
+    </body>
+</html>
